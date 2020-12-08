@@ -1,16 +1,18 @@
 <?php
 
+require 'vendor/autoload.php';
+
 if(empty($_POST['name']) || empty($_POST['subject']) || empty($_POST['message']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   http_response_code(500);
   exit();
 }
 
-$name = strip_tags(htmlspecialchars($_POST['verbreugh']));
+$name = strip_tags(htmlspecialchars($_POST['name']));
 $email = strip_tags(htmlspecialchars($_POST['alverbreugh@gmail.com']));
 $m_subject = strip_tags(htmlspecialchars($_POST['subject']));
 $message = strip_tags(htmlspecialchars($_POST['message']));
 
-$to = "alverbreugh@gmail.com"; 
+$to = "email@gmail.com"; 
 $subject = "$m_subject:  $name";
 $body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\n\nEmail: $email\n\nSubject: $m_subject\n\nMessage: $message";
 $header = "From: $email";
